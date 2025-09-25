@@ -1,0 +1,80 @@
+﻿@page
+@model Projeto_escola.Pages.DisciplinasModel
+@{
+}
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Disciplinas - Academic Manager</title>
+    <link rel="stylesheet" type="text/css" href="~/css/Disciplinas.css" />
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="site-header">
+        <div class="container">
+            <h1 class="brand">Academic Manager</h1>
+            <nav class="main-nav">
+                <a asp-page="/Inicial">Início</a>
+                <a asp-page="/Dashboard">Dashboard</a>
+                <a asp-page="/Disciplinas">Disciplinas</a>
+                <a asp-page="/Professores">Professores</a>
+                <a asp-page="/Matriculas">Matrículas</a>
+                <a asp-page="/Login">Sair</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo -->
+    <main class="container">
+        <div class="header-actions">
+            <h2>Disciplinas</h2>
+            <a class="btn primary" asp-page="/DisciplinasCreate">Nova disciplina</a>
+        </div>
+
+        <div class="card">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Carga Horária</th>
+                        <th>Professor</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Exemplo de dados estáticos -->
+                    <tr>
+                        <td>1</td>
+                        <td>Matemática Discreta</td>
+                        <td>60h</td>
+                        <td>Ana Pereira</td>
+                        <td>
+                            <a asp-page="/DisciplinasCreate" asp-route-id="1">Editar</a> |
+                            <a href="#" onclick="alert('Excluir disciplina 1')">Excluir</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Programação I</td>
+                        <td>80h</td>
+                        <td>Carlos Mendes</td>
+                        <td>
+                            <a asp-page="/DisciplinasCreate" asp-route-id="2">Editar</a> |
+                            <a href="#" onclick="alert('Excluir disciplina 2')">Excluir</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="site-footer">
+        <div class="container">© 2025 • Academic Manager</div>
+    </footer>
+</body>
+</html>
+

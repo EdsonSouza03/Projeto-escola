@@ -1,0 +1,59 @@
+﻿@page
+@model Projeto_escola.Pages.DashboardModel
+@{
+}
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dashboard - Academic Manager</title>
+    <link rel="stylesheet" type="text/css" href="~/css/Dashboard.css" />
+
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="site-header">
+        <div class="container">
+            <h1 class="brand">Academic Manager</h1>
+            <nav class="main-nav">
+                <a asp-page="/Inicial">Início</a>
+                <a asp-page="/Dashboard">Dashboard</a>
+                <a asp-page="/Disciplinas">Disciplinas</a>
+                <a asp-page="/Professores">Professores</a>
+                <a asp-page="/Matriculas">Matrículas</a>
+                <a asp-page="/Login">Sair</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo -->
+    <main class="container">
+        <h2>Dashboard</h2>
+        <p class="subtitle">Visão geral do sistema acadêmico</p>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Alunos</h3>
+                <p>Total registrado:</p>
+                <span class="number">124</span>
+            </div>
+            <div class="card">
+                <h3>Disciplinas</h3>
+                <p>Total cadastradas:</p>
+                <span class="number">28</span>
+            </div>
+            <div class="card">
+                <h3>Matrículas</h3>
+                <p>Ativas:</p>
+                <span class="number">98</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="site-footer">
+        <div class="container">© 2025 • Academic Manager</div>
+    </footer>
+</body>
+</html>

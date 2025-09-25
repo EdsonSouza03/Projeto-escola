@@ -1,0 +1,83 @@
+﻿:root {
+    --bg: #f6f7fb;
+    --card: #ffffff;
+    --accent: #0f62fe;
+    --muted: #6b7280;
+    }
+
+body {
+    margin: 0;
+    font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: #111;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.login-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+    text-align: center;
+    left: auto;
+    right: auto;
+}
+
+.brand {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--accent);
+}
+
+.title {
+    margin: 10px 0 20px;
+    font-size: 1.1rem;
+    color: var(--muted);
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e6e9ef;
+    font-size: 1rem;
+}
+
+    input:focus {
+        outline: none;
+        border-color: var(--accent);
+    }
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+    .btn.primary {
+        background: var(--accent);
+        color: white;
+    }
+
+        .btn.primary:hover {
+            background: #0049d1;
+        }

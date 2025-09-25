@@ -1,0 +1,55 @@
+﻿@page
+@model Projeto_escola.Pages.InicialModel
+@{
+}
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Academic Manager - Início</title>
+    <link rel="stylesheet" type="text/css" href="~/css/Inicial.css" />
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="site-header">
+        <div class="container">
+            <h1 class="brand">Academic Manager</h1>
+            
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h2>Bem-vindo ao Academic Manager</h2>
+            <p>Um sistema simples e eficiente para gerenciar alunos, disciplinas e matrículas.</p>
+            <form method="get" asp-page="/Login">
+                <button type="submit" class="btn primary">Entrar no sistema</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Recursos -->
+    <section class="features container">
+        <div class="card">
+            <h3>📚 Alunos</h3>
+            <p>Cadastre, edite e acompanhe informações de todos os alunos em um só lugar.</p>
+        </div>
+        <div class="card">
+            <h3>📝 Disciplinas</h3>
+            <p>Organize suas disciplinas com detalhes completos e fáceis de acessar.</p>
+        </div>
+        <div class="card">
+            <h3>🎓 Matrículas</h3>
+            <p>Gerencie as matrículas de forma rápida e segura, sem complicações.</p>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="site-footer">
+        <div class="container">© 2025 • Academic Manager</div>
+    </footer>
+</body>
+</html>
+

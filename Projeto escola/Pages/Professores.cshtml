@@ -1,0 +1,79 @@
+﻿@page
+@model Projeto_escola.Pages.ProfessoresModel
+@{
+}
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Professores - Academic Manager</title>
+    <link rel="stylesheet" type="text/css" href="~/css/Professores.css" />
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="site-header">
+        <div class="container">
+            <h1 class="brand">Academic Manager</h1>
+            <nav class="main-nav">
+                <a asp-page="/Inicial">Início</a>
+                <a asp-page="/Dashboard">Dashboard</a>
+                <a asp-page="/Disciplinas">Disciplinas</a>
+                <a asp-page="/Professores">Professores</a>
+                <a asp-page="/Matriculas">Matrículas</a>
+                <a asp-page="/Login">Sair</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo -->
+    <main class="container">
+        <div class="header-actions">
+            <h2>Professores</h2>
+            <a class="btn primary" asp-page="/ProfessoresCreate">Novo professor</a>
+        </div>
+
+        <div class="card">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                        <th>Especialidade</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Exemplo estático -->
+                    <tr>
+                        <td>1</td>
+                        <td>Ana Pereira</td>
+                        <td>ana.pereira@example.com</td>
+                        <td>Matemática</td>
+                        <td>
+                            <a asp-page="/ProfessoresCreate" asp-route-id="1">Editar</a> |
+                            <a href="#" onclick="alert('Excluir professor 1')">Excluir</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Carlos Mendes</td>
+                        <td>carlos.mendes@example.com</td>
+                        <td>Programação</td>
+                        <td>
+                            <a asp-page="/ProfessoresCreate" asp-route-id="2">Editar</a> |
+                            <a href="#" onclick="alert('Excluir professor 2')">Excluir</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="site-footer">
+        <div class="container">© 2025 • Academic Manager</div>
+    </footer>
+</body>
+</html>

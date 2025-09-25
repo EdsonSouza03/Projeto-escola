@@ -1,0 +1,79 @@
+﻿@page
+@model Projeto_escola.Pages.MatriculasModel
+@{
+}
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Matrículas - Academic Manager</title>
+    <link rel="stylesheet" type="text/css" href="~/css/Matriculas.css" />
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header class="site-header">
+        <div class="container">
+            <h1 class="brand">Academic Manager</h1>
+            <nav class="main-nav">
+                <a asp-page="/Inicial">Início</a>
+                <a asp-page="/Dashboard">Dashboard</a>
+                <a asp-page="/Disciplinas">Disciplinas</a>
+                <a asp-page="/Professores">Professores</a>
+                <a asp-page="/Matriculas">Matrículas</a>
+                <a asp-page="/Login">Sair</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo -->
+    <main class="container">
+        <div class="header-actions">
+            <h2>Matrículas</h2>
+            <a class="btn primary" href="enrollment-create.html">Nova matrícula</a>
+        </div>
+
+        <div class="card">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Aluno</th>
+                        <th>Disciplina</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Exemplo de dados estáticos -->
+                    <tr>
+                        <td>1</td>
+                        <td>João Silva</td>
+                        <td>Programação I</td>
+                        <td>Ativa</td>
+                        <td>
+                            <a href="enrollment-create.html?id=1">Editar</a> |
+                            <a href="#" onclick="alert('Excluir matrícula 1')">Excluir</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Maria Souza</td>
+                        <td>Matemática Discreta</td>
+                        <td>Concluída</td>
+                        <td>
+                            <a href="enrollment-create.html?id=2">Editar</a> |
+                            <a href="#" onclick="alert('Excluir matrícula 2')">Excluir</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="site-footer">
+        <div class="container">© 2025 • Academic Manager</div>
+    </footer>
+</body>
+</html>

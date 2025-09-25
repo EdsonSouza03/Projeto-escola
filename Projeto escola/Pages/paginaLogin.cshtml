@@ -1,0 +1,33 @@
+﻿@page
+@model PaginaLoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Login - Academic Manager</title>
+    <link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body>
+    <main class="login-container">
+        <div class="login-card">
+            <h1 class="brand">Academic Manager</h1>
+            <h2 class="title">Entrar</h2>
+            <form id="loginForm" onsubmit="event.preventDefault(); window.location.href='dashboard.html'">
+                <div class="form-group">
+                    <input type="text" name="username" placeholder="Usuário" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="Senha" required>
+                </div>
+                <button type="submit" class="btn primary">Entrar</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

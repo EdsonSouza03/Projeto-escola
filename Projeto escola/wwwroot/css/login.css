@@ -71,13 +71,22 @@ input {
     font-size: 1rem;
     cursor: pointer;
     transition: background 0.2s ease-in-out;
+    background: #e6e9ef;
+    color: #111;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 8px;
 }
 
     .btn.primary {
-        background: var(--accent);
+        background: #0f62fe;
         color: white;
     }
 
         .btn.primary:hover {
             background: #0049d1;
         }
+
+    .btn:hover {
+        background: #d0d4db;
+    }

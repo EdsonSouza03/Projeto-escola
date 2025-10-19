@@ -1,57 +1,40 @@
 ﻿@page
 @model Projeto_escola.Pages.RegistroprofModel
-@{
-}
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Novo Professor - Academic Manager</title>
-    <link rel="stylesheet" type="text/css" href="~/css/Registroprof.css" />
-</head>
-<body>
-    <!-- Cabeçalho -->
-    <header class="site-header">
-        <div class="container">
-            <h1 class="brand">Academic Manager</h1>
-            <nav class="main-nav">
-                <a href="index.html">Início</a>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Conteúdo -->
-    <main class="container">
-        <div class="card">
-            <h2>Registrar Professor</h2>
-            <form id="teacherForm" onsubmit="event.preventDefault(); alert('Professor cadastrado! (exemplo)'); window.location.href='teachers.html';">
-                <div class="form-group">
-                    <label for="nome">Nome completo</label>
-                    <input type="text" id="nome" name="nome" placeholder="Digite o nome completo" required>
-                </div>
+<link rel="stylesheet" type="text/css" href="~/css/Registroprof.css" />
 
-                <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" name="email" placeholder="professor@exemplo.com" required>
-                </div>
+<div class="login-container">
+    <div class="login-card">
+        <div class="brand">Projeto Escola</div>
+        <div class="title">Criar nova conta</div>
+        <form method="post">
+            <div>
+                <label>Usuário:</label>
+                <input type="text" name="Usuario" />
+            </div>
 
-                <div class="form-group">
-                    <label for="especialidade">Especialidade</label>
-                    <input type="text" id="especialidade" name="especialidade" placeholder="Ex.: Matemática, Programação" required>
-                </div>
+            <div>
+                <label>Senha:</label>
+                <input type="password" name="Senha" />
+            </div>
 
-                <div class="form-actions">
-                    <button type="submit" class="btn primary">Salvar</button>
-                    <a href="teachers.html" class="btn">Cancelar</a>
-                </div>
-            </form>
-        </div>
-    </main>
+            <div>
+                <label>Especialidade:</label>
+                <input type="text" name="Especialidade" />
+            </div>
 
-    <!-- Rodapé -->
-    <footer class="site-footer">
-        <div class="container">© 2025 • Academic Manager</div>
-    </footer>
-</body>
-</html>
+
+            <button type="submit">Registrar</button>
+
+        </form>
+
+        <a asp-page="/Login" class="btn">Voltar ao login</a>
+
+        @if (!string.IsNullOrEmpty(ViewData["Mensagem"] as string))
+        {
+            <div style="margin-top: 15px; color: green;">
+                @ViewData["Mensagem"]
+            </div>
+        }
+    </div>
+</div>

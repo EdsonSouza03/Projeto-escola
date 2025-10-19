@@ -1,39 +1,43 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Projeto_escola.Data;
+using Projeto_escola.Models;
+using System.Linq;
 
 namespace Projeto_escola.Pages
 {
     public class PaginaLoginModel : PageModel
     {
-        public void OnGet()
+        private readonly AppDbContext _context;
+
+        [BindProperty]
+        public string Usuario { get; set; }
+
+        [BindProperty]
+        public string Senha { get; set; }
+
+        public PaginaLoginModel(AppDbContext context)
         {
+            _context = context;
+        }
+
+        public void OnGet() { }
+
+        public IActionResult OnPost()
+        {
+            var usuario = _context.Professores
+                .FirstOrDefault(u => u.Nome == Usuario && u.Senha == Senha);
+
+            if (usuario != null)
+            {
+                // Redireciona para o dashboard
+                return RedirectToPage("Dashboard");
+            }
+
+
+
+            ModelState.AddModelError(string.Empty, "Usuário ou senha inválidos.");
+            return Page();
         }
     }
 }
-
-
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Login - Academic Manager</title>
-    <link rel="stylesheet" href="assets/css/login.css">
-</head>
-<body>
-    <main class="login-container">
-        <div class="login-card">
-            <h1 class="brand">Academic Manager</h1>
-            <h2 class="title">Entrar</h2>
-            <form id="loginForm" onsubmit="event.preventDefault(); window.location.href='dashboard.html'">
-                <div class="form-group">
-                    <input type="text" name="username" placeholder="Usuário" required>
-                </div>
-                <div class="form-group">
-                    <input type="password" name="password" placeholder="Senha" required>
-                </div>
-                <button type="submit" class="btn primary">Entrar</button>
-            </form>
-        </div>
-    </main>
-</body>
-</html>

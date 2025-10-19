@@ -1,0 +1,29 @@
+﻿@page
+@model Projeto_escola.Pages.AlunosCreateModel
+@{
+    ViewData["Title"] = "Novo Aluno";
+}
+
+<h2>Novo Aluno</h2>
+
+<link rel="stylesheet" type="text/css" href="~/css/AlunosCreate.css" />
+
+
+<form method="post">
+    <div>
+        <label asp-for="Aluno.Nome"></label>
+        <input asp-for="Aluno.Nome" class="form-control" />
+    </div>
+
+    <div>
+        <label asp-for="Aluno.RA"></label>
+        <input asp-for="Aluno.RA" class="form-control" />
+    </div>
+
+    <button type="submit">Salvar</button>
+</form>
+
+@if (ViewData["Mensagem"] != null)
+{
+    <div style="color: green">@ViewData["Mensagem"]</div>
+}

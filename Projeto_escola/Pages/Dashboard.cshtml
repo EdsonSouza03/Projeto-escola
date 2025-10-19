@@ -1,59 +1,56 @@
 ﻿@page
 @model Projeto_escola.Pages.DashboardModel
+
 @{
+    ViewData["Title"] = "Painel do Professor";
 }
-<!doctype html>
-<html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Dashboard - Academic Manager</title>
-    <link rel="stylesheet" type="text/css" href="~/css/Dashboard.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Projeto Escola</title>
+    <link rel="stylesheet" href="~/css/Dashboard.css" asp-append-version="true">
 
 </head>
 <body>
-    <!-- Cabeçalho -->
-    <header class="site-header">
-        <div class="container">
-            <h1 class="brand">Academic Manager</h1>
-            <nav class="main-nav">
-                <a asp-page="/Inicial">Início</a>
-                <a asp-page="/Dashboard">Dashboard</a>
-                <a asp-page="/Disciplinas">Disciplinas</a>
-                <a asp-page="/Professores">Professores</a>
-                <a asp-page="/Matriculas">Matrículas</a>
-                <a asp-page="/Login">Sair</a>
+    <div class="container">
+        <!-- MENU LATERAL -->
+        <aside class="sidebar">
+            <h2>Projeto Escola</h2>
+            <nav>
+                <ul>
+                    <li><a href="#">🏠 Início</a></li>
+                    <a asp-page="/Professores">👨‍🏫 Professores</a>
+                    <a asp-page="/Alunos">👩‍🎓 Alunos</a>
+                    <a asp-page="/Disciplinas">📚 Disciplinas</a>
+                    <a asp-page="/Matriculas">🧾 Matrículas</a>
+                    <a asp-page="/Login" class="logout">🚪 Sair</a>
+                </ul>
             </nav>
-        </div>
-    </header>
+        </aside>
 
-    <!-- Conteúdo -->
-    <main class="container">
-        <h2>Dashboard</h2>
-        <p class="subtitle">Visão geral do sistema acadêmico</p>
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content">
+            <header>
+                <h1>Dashboard</h1>
+                <p>Bem-vindo, <strong>Administrador</strong></p>
+            </header>
 
-        <div class="grid">
+            <!-- CARDS DE INFORMAÇÕES -->
+            <div class="card">
+                <h3>Professores</h3>
+                <p>@Model.TotalProfessores cadastrados</p>
+            </div>
             <div class="card">
                 <h3>Alunos</h3>
-                <p>Total registrado:</p>
-                <span class="number">124</span>
+                <p>@Model.TotalAlunos matriculados</p>
             </div>
             <div class="card">
                 <h3>Disciplinas</h3>
-                <p>Total cadastradas:</p>
-                <span class="number">28</span>
+                <p>@Model.TotalDisciplinas ativas</p>
             </div>
-            <div class="card">
-                <h3>Matrículas</h3>
-                <p>Ativas:</p>
-                <span class="number">98</span>
-            </div>
-        </div>
-    </main>
-
-    <!-- Rodapé -->
-    <footer class="site-footer">
-        <div class="container">© 2025 • Academic Manager</div>
-    </footer>
+        </main>
+    </div>
 </body>
 </html>

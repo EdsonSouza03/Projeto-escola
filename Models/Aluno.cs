@@ -1,13 +1,12 @@
-namespace Projeto_escola.Models
+using Microsoft.EntityFrameworkCore;
+using Projeto_escola.Models;
+
+namespace Projeto_escola.Data
 {
-    public class Aluno
+    public class AppDbContext : DbContext
     {
-        public int Id { get; set; }
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        [Required]
-        public string Nome { get; set; }
-
-        [Required]
-        public string Email { get; set; }
+        public DbSet<Aluno> Alunos { get; set; }
     }
 }

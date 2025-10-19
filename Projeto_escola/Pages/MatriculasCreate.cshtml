@@ -1,0 +1,53 @@
+﻿@page
+@model Projeto_escola.Pages.MatriculasCreateModel
+
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Nova Matrícula</title>
+    <link rel="stylesheet" href="~/css/MatriculasCreate.css" asp-append-version="true" />
+</head>
+<body>
+    <!-- Barra azul com nome da escola -->
+    <header class="site-header">
+        <h1>Escola Modelo</h1>
+    </header>
+
+    <div class="container">
+        <h2>@(Model.Matricula.Id == 0 ? "Nova Matrícula" : "Editar Matrícula")</h2>
+
+        <form method="post">
+            <div>
+                <label>Aluno</label>
+                <input asp-for="Matricula.AlunoNome" />
+            </div>
+
+            <div>
+                <label>Disciplina</label>
+                <input asp-for="Matricula.DisciplinaNome" />
+            </div>
+
+            <div>
+                <label>Data</label>
+                <input asp-for="Matricula.DataMatricula" type="date" />
+            </div>
+
+            <div>
+                <label>Status</label>
+                <select asp-for="Matricula.Status">
+                    <option value="Ativa">Ativa</option>
+                    <option value="Trancada">Trancada</option>
+                    <option value="Concluída">Concluída</option>
+                    <option value="Cancelada">Cancelada</option>
+                </select>
+            </div>
+
+            <div class="actions">
+                <button type="submit">Salvar</button>
+                <a asp-page="/Matriculas" class="btn-back">Voltar</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

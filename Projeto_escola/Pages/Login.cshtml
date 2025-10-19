@@ -1,34 +1,34 @@
 ﻿@page
-@model Projeto_escola.Pages.IndexModel
+@model Projeto_escola.Pages.PaginaLoginModel
 @{
     ViewData["Title"] = "Login";
-
 }
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="utf-8">
-    <title>Login - Academic Manager</title>
-    <link rel="stylesheet" type="text/css" href="~/css/login.css" />
-</head>
-<body>
-    <main class="login-container">
-        <div class="login-card">
-            <h1 class="brand">Academic Manager</h1>
-            <h2 class="title">Entrar</h2>
-            <form id="loginForm" onsubmit="event.preventDefault(); window.location.href='@Url.Page("/Dashboard")'">
-                <div class="form-group">
-                    <input type="text" name="username" placeholder="Usuário" required>
-                </div>
-                <div class="form-group">
-                    <input type="password" name="password" placeholder="Senha" required>
-                </div>
-                <button type="submit" class="btn primary">Entrar</button>
-            </form>
-            <div class="form-group" style="margin-top: 8px;">
-                <a asp-page="/Registroprof" class="btn primary">Registrar novo professor</a>
+<link rel="stylesheet" href="~/css/login.css" />
+
+<div class="login-container">
+    <div class="login-card">
+        <div class="brand">Projeto Escola</div>
+        <div class="title">Acesse sua conta</div>
+
+        <form method="post">
+            <div class="form-group">
+                <input type="text" id="Usuario" name="Usuario" placeholder="Usuário" required />
             </div>
-        </div>
-    </main>
-</body>
-</html>
+
+            <div class="form-group">
+                <input type="password" id="Senha" name="Senha" placeholder="Senha" required />
+            </div>
+
+            <button type="submit" class="btn primary">Entrar</button>
+        </form>
+
+        <a asp-page="/Registroprof" class="btn primary">Registrar</a>
+
+        @if (!string.IsNullOrEmpty(ViewData["MensagemErro"] as string))
+        {
+            <div style="margin-top: 15px; color: red;">
+                @ViewData["MensagemErro"]
+            </div>
+        }
+    </div>
+</div>

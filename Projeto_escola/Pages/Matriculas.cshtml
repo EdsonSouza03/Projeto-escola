@@ -4,12 +4,14 @@
 }
 <!doctype html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Matrículas - Academic Manager</title>
-    <link rel="stylesheet" type="text/css" href="~/css/Matriculas.css" />
+    <link rel="stylesheet" href="~/css/Matriculas.css" asp-append-version="true" />
 </head>
+
 <body>
     <!-- Cabeçalho -->
     <header class="site-header">
@@ -20,6 +22,7 @@
                 <a asp-page="/Dashboard">Dashboard</a>
                 <a asp-page="/Disciplinas">Disciplinas</a>
                 <a asp-page="/Professores">Professores</a>
+                <a asp-page="/Alunos">Alunos</a>
                 <a asp-page="/Matriculas">Matrículas</a>
                 <a asp-page="/Login">Sair</a>
             </nav>
@@ -29,8 +32,8 @@
     <!-- Conteúdo -->
     <main class="container">
         <div class="header-actions">
-            <h2>Matrículas</h2>
-            <a class="btn primary" href="enrollment-create.html">Nova matrícula</a>
+            <h2>Gerenciar Matrículas</h2>
+            <a class="btn primary" asp-page="/MatriculasCreate">Nova Matrícula</a>
         </div>
 
         <div class="card">
@@ -40,32 +43,28 @@
                         <th>ID</th>
                         <th>Aluno</th>
                         <th>Disciplina</th>
+                        <th>Data</th>
                         <th>Status</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Exemplo de dados estáticos -->
-                    <tr>
-                        <td>1</td>
-                        <td>João Silva</td>
-                        <td>Programação I</td>
-                        <td>Ativa</td>
-                        <td>
-                            <a href="enrollment-create.html?id=1">Editar</a> |
-                            <a href="#" onclick="alert('Excluir matrícula 1')">Excluir</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Maria Souza</td>
-                        <td>Matemática Discreta</td>
-                        <td>Concluída</td>
-                        <td>
-                            <a href="enrollment-create.html?id=2">Editar</a> |
-                            <a href="#" onclick="alert('Excluir matrícula 2')">Excluir</a>
-                        </td>
-                    </tr>
+                    @foreach (var m in Model.Matriculas)
+                    {
+                        <tr>
+                            <td>@m.Id</td>
+                            <td>@m.AlunoNome</td>
+                            <td>@m.DisciplinaNome</td>
+                            <td>@m.DataMatricula.ToShortDateString()</td>
+                            <td>@m.Status</td>
+                            <td>
+                                <a asp-page="/MatriculasCreate" asp-route-id="@m.Id">Editar</a> |
+                                <form method="post" asp-page-handler="Delete" asp-route-id="@m.Id" style="display:inline;">
+                                    <button type="submit" class="link danger" onclick="return confirm('Excluir matrícula?')">Excluir</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>

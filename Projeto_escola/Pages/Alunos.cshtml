@@ -1,14 +1,21 @@
 ﻿@page
 @model Projeto_escola.Pages.AlunosModel
 @{
+    ViewData["Title"] = "Alunos";
 }
+
 <!doctype html>
 <html lang="pt-br">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Alunos - Academic Manager</title>
-    <link rel="stylesheet" type="text/css" href="~/css/Alunos.css" />
+
+    <!-- Caminho base para o Razor -->
+    <base href="~/" />
+
+    <!-- CSS com cache busting -->
+    <link rel="stylesheet" href="~/css/Alunos.css" asp-append-version="true" />
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -16,22 +23,20 @@
         <div class="container">
             <h1 class="brand">Academic Manager</h1>
             <nav class="main-nav">
-                <a asp-page="/Inicial">Início</a>
-                <a asp-page="/Dashboard">Dashboard</a>
+                <a asp-page="/Dashboard">Início</a>
                 <a asp-page="/Disciplinas">Disciplinas</a>
                 <a asp-page="/Professores">Professores</a>
                 <a asp-page="/Matriculas">Matrículas</a>
-                <a asp-page="/Alunos">Alunos</a>
                 <a asp-page="/Login">Sair</a>
             </nav>
         </div>
     </header>
 
-    <!-- Conteúdo -->
+    <!-- Conteúdo principal -->
     <main class="container">
         <div class="header-actions">
             <h2>Alunos</h2>
-            <a class="btn primary" asp-page="/AlunosCreate">Novo aluno</a>
+            <a class="btn primary" asp-page="/AlunosCreate">Novo Aluno</a>
         </div>
 
         <div class="card">
@@ -40,30 +45,32 @@
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
-                        <th>E-mail</th>
+                        <th>RA</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Exemplo de dados estáticos -->
-                    <tr>
-                        <td>1</td>
-                        <td>João Silva</td>
-                        <td>joao@example.com</td>
-                        <td>
-                            <a asp-page="/AlunosCreate" asp-route-id="1">Editar</a> |
-                            <a href="#" onclick="alert('Excluir aluno 1')">Excluir</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Maria Souza</td>
-                        <td>maria@example.com</td>
-                        <td>
-                            <a asp-page="/AlunosCreate" asp-route-id="2">Editar</a> |
-                            <a href="#" onclick="alert('Excluir aluno 2')">Excluir</a>
-                        </td>
-                    </tr>
+                    @if (Model.ListaAlunos == null || !Model.ListaAlunos.Any())
+                    {
+                        <tr><td colspan="4">Nenhum aluno cadastrado.</td></tr>
+                    }
+                    else
+                    {
+                        @foreach (var aluno in Model.ListaAlunos)
+                        {
+                            <tr>
+                                <td>@aluno.Id</td>
+                                <td>@aluno.Nome</td>
+                                <td>@aluno.RA</td>
+                                <td>
+                                    <a asp-page="/AlunosCreate" asp-route-id="@aluno.Id">Editar</a> |
+                                    <form method="post" asp-page-handler="Delete" asp-route-id="@aluno.Id" style="display:inline;">
+                                        <button type="submit" class="link danger" onclick="return confirm('Excluir este aluno?')">Excluir</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }
                 </tbody>
             </table>
         </div>

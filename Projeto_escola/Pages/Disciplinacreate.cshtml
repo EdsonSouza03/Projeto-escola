@@ -1,0 +1,32 @@
+﻿@page
+@model Projeto_escola.Pages.DisciplinasCreateModel
+
+<h2>Nova Disciplina</h2>
+
+<link rel="stylesheet" type="text/css" href="~/css/DisciplinasCreate.css" />
+
+
+<form method="post">
+    <div>
+        <label>Nome:</label>
+        <input asp-for="Disciplina.Nome" />
+    </div>
+
+    <div>
+        <label>Carga Horária:</label>
+        <input asp-for="Disciplina.CargaHoraria" />
+    </div>
+
+    <div>
+        <label>Professor:</label>
+        <input asp-for="Disciplina.Professor" />
+    </div>
+
+    <button type="submit">Salvar</button>
+    <a asp-page="/Disciplinas">Cancelar</a>
+
+    @if (ViewData["Mensagem"] != null)
+    {
+        <p style="color: green;">@ViewData["Mensagem"]</p>
+    }
+</form>

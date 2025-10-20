@@ -3,10 +3,10 @@ using Projeto_escola.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Conexão com o banco de dados MySQL
+
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
-        new MySqlServerVersion(new Version(8, 0, 36)))); // ajuste a versão do seu MySQL
+        new MySqlServerVersion(new Version(8, 0, 36)))); 
 
 builder.Services.AddRazorPages();
 
